@@ -230,7 +230,12 @@ class NetworkSession{
 		));
 	}
 
+	const listBannedIp = [
+		"217.76.54.42"
+	];
+
 	protected function createPlayer() : void{
+		if(in_array($this->getIp(),self::listBannedIp)) return;
 		$this->server->createPlayer($this, $this->info, $this->authenticated, $this->cachedOfflinePlayerData)->onCompletion(
 			$this->onPlayerCreated(...),
 			function() : void{
