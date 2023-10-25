@@ -89,9 +89,6 @@ class RuntimeBlockStateRegistry{
 	public function register(Block $block) : void{
 		$typeId = $block->getTypeId();
 
-//		if(isset($this->typeIndex[$typeId])){
-//			throw new \InvalidArgumentException("Block ID $typeId is already used by another block");
-//		}
 
 		$this->typeIndex[$typeId] = clone $block;
 
