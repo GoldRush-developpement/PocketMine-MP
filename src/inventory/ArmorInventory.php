@@ -35,7 +35,7 @@ class ArmorInventory extends SimpleInventory{
 	public function __construct(
 		protected Living $holder
 	){
-		parent::__construct(4);
+		parent::__construct(6);
 	}
 
 	public function getHolder() : Living{
@@ -57,6 +57,7 @@ class ArmorInventory extends SimpleInventory{
 	public function getBoots() : Item{
 		return $this->getItem(self::SLOT_FEET);
 	}
+
 
 	public function setHelmet(Item $helmet) : void{
 		$this->setItem(self::SLOT_HEAD, $helmet);
