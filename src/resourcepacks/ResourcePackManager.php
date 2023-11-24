@@ -93,6 +93,7 @@ class ResourcePackManager{
 				continue;
 			}
 			$pack = (string) $pack;
+			var_dump($pack);
 			try{
 				$newPack = $this->loadPackFromPath(Path::join($this->path, $pack));
 
@@ -118,6 +119,7 @@ class ResourcePackManager{
 			}
 		}
 
+		var_dump($this->encryptionKeys);
 		$logger->debug("Successfully loaded " . count($this->resourcePacks) . " resource packs");
 	}
 
