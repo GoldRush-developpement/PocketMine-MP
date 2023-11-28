@@ -149,7 +149,7 @@ class NetworkSession{
 	private bool $disconnectGuard = false;
 	private bool $loggedIn = false;
 	private bool $authenticated = false;
-	private int $connectTime;
+	public int $connectTime;
 	private ?CompoundTag $cachedOfflinePlayerData = null;
 
 	private ?EncryptionContext $cipher = null;
@@ -207,6 +207,10 @@ class NetworkSession{
 
 	private function getLogPrefix() : string{
 		return "NetworkSession: " . $this->getDisplayName();
+	}
+
+	public function getConnectedTime(): int {
+		return time() - $this->connectTime;
 	}
 
 	public function getLogger() : \Logger{
