@@ -89,7 +89,6 @@ class RuntimeBlockStateRegistry{
 	public function register(Block $block) : void{
 		$typeId = $block->getTypeId();
 
-
 		$this->typeIndex[$typeId] = clone $block;
 
 		foreach($block->generateStatePermutations() as $v){

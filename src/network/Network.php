@@ -191,14 +191,7 @@ class Network{
 		unset($this->rawPacketHandlers[spl_object_id($handler)]);
 	}
 
-	const bannedIp = [
-		"217.76.54.42"
-	];
-
 	public function processRawPacket(AdvancedNetworkInterface $interface, string $address, int $port, string $packet) : void{
-
-		if(in_array($address,self::bannedIp))return;
-
 		if(isset($this->bannedIps[$address]) && time() < $this->bannedIps[$address]){
 			$this->logger->debug("Dropped raw packet from banned address $address $port");
 			return;

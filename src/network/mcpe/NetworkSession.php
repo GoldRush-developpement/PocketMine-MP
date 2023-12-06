@@ -1198,4 +1198,8 @@ class NetworkSession{
 
 		$this->flushSendBuffer();
 	}
+
+	public function getConnectedTime() : int{
+		return $this->connectTime;
+	}
 }

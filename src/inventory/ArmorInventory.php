@@ -31,12 +31,11 @@ class ArmorInventory extends SimpleInventory{
 	public const SLOT_CHEST = 1;
 	public const SLOT_LEGS = 2;
 	public const SLOT_FEET = 3;
-	public const SLOT_COSMETIC = 4;
 
 	public function __construct(
 		protected Living $holder
 	){
-		parent::__construct(5);
+		parent::__construct(4);
 	}
 
 	public function getHolder() : Living{
@@ -59,11 +58,6 @@ class ArmorInventory extends SimpleInventory{
 		return $this->getItem(self::SLOT_FEET);
 	}
 
-	public function getCosmetic() : Item{
-		return $this->getItem(self::SLOT_COSMETIC);
-	}
-
-
 	public function setHelmet(Item $helmet) : void{
 		$this->setItem(self::SLOT_HEAD, $helmet);
 	}
@@ -78,9 +72,5 @@ class ArmorInventory extends SimpleInventory{
 
 	public function setBoots(Item $boots) : void{
 		$this->setItem(self::SLOT_FEET, $boots);
-	}
-
-	public function setCosmetic(Item $cosmetic) : void{
-		$this->setItem(self::SLOT_COSMETIC, $cosmetic);
 	}
 }
