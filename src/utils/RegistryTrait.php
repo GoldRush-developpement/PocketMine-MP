@@ -40,7 +40,7 @@ trait RegistryTrait{
 	 * @var object[]|null
 	 * @phpstan-var array<string, object>|null
 	 */
-	private static $members = null;
+	public static $members = null;
 
 	private static function verifyName(string $name) : void{
 		if(preg_match('/^(?!\d)[A-Za-z\d_]+$/u', $name) === 0){
@@ -53,7 +53,7 @@ trait RegistryTrait{
 	 *
 	 * @throws \InvalidArgumentException
 	 */
-	private static function _registryRegister(string $name, object $member) : void{
+	public static function _registryRegister(string $name, object $member) : void{
 		if(self::$members === null){
 			throw new AssumptionFailedError("Cannot register members outside of " . self::class . "::setup()");
 		}

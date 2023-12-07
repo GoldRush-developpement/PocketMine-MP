@@ -1174,6 +1174,7 @@ class NetworkSession{
 			return;
 		}
 
+
 		if($this->info === null){
 			if(time() >= $this->connectTime + 10){
 				$this->disconnectWithError(KnownTranslationFactory::pocketmine_disconnect_error_loginTimeout());
@@ -1201,9 +1202,5 @@ class NetworkSession{
 		}
 
 		$this->flushSendBuffer();
-	}
-
-	public function getConnectedTime() : int{
-		return $this->connectTime;
 	}
 }

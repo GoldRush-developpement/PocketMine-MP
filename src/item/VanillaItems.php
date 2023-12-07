@@ -36,6 +36,7 @@ use pocketmine\item\ItemIdentifier as IID;
 use pocketmine\item\ItemTypeIds as Ids;
 use pocketmine\item\VanillaArmorMaterials as ArmorMaterials;
 use pocketmine\math\Vector3;
+use pocketmine\utils\AssumptionFailedError;
 use pocketmine\utils\CloningRegistryTrait;
 use pocketmine\world\World;
 use function strtolower;
@@ -320,7 +321,9 @@ final class VanillaItems{
 		//NOOP
 	}
 
+
 	protected static function register(string $name, Item $item) : void{
+		$item->getNamedTag()->setString('anti_dupli', 'on');
 		self::_registryRegister($name, $item);
 	}
 

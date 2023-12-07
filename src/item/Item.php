@@ -752,6 +752,9 @@ class Item implements \JsonSerializable{
 
 	public function __clone(){
 		$this->nbt = clone $this->nbt;
+		if ($this->nbt->getString('anti_dupli', 'none') !== 'none') {
+			$this->nbt->removeTag('anti_dupli');
+		}
 		if($this->blockEntityTag !== null){
 			$this->blockEntityTag = clone $this->blockEntityTag;
 		}
