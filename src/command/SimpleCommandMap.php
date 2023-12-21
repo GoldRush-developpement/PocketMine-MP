@@ -202,7 +202,16 @@ class SimpleCommandMap implements CommandMap{
 	public function dispatch(CommandSender $sender, string $commandLine) : bool{
 		$args = CommandStringHelper::parseQuoteAware($commandLine);
 
-		$sentCommandLabel = strtolower(array_shift($args));
+		if (is_null($args)) {
+			return false;
+		}
+
+		$shift = array_shift($args);
+		if (is_null($shift)) {
+			return false;
+		}
+
+		$sentCommandLabel = strtolower($shift);
 		if(($target = $this->getCommand($sentCommandLabel)) !== null){
 			$timings = Timings::getCommandDispatchTimings($target->getLabel());
 			$timings->startTiming();
