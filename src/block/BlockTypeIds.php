@@ -855,7 +855,24 @@ final class BlockTypeIds{
 	public const AZALEA = 10825;
 	public const FLOWERING_AZALEA = 10826;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10827;
+	public const MOSS_BLOCK = 10827;
+	public const DRIPSTONE_BLOCK = 10828;
+	public const LODESTONE = 10829;
+	public const KELP = 10830;
+	public const SEAGRASS = 10831;
+	public const SCAFFOLDING = 10832;
+	public const COMPOSTER = 10833;
+	public const GRINDSTONE = 10834;
+	public const POINTED_DRIPSTONE = 10835;
+	public const TURTLE_EGG = 10836;
+	public const MOSS_CARPET = 10837;
+	public const BEEHIVE = 10838;
+	public const BEE_NEST = 10839;
+	public const DECORATED_POT = 10840;
+	public const DISPENSER = 10841;
+	public const PISTON = 10842;
+
+	public const FIRST_UNUSED_BLOCK_ID = 10843;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 

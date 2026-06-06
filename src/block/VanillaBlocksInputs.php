@@ -625,6 +625,23 @@ final class VanillaBlocksInputs extends RegistrySource{
 		self::registerResinBlocks();
 		self::registerTuffBlocks();
 
+		self::register("moss_block", fn(BID $id) => new Opaque($id, "Moss Block", new Info(new BreakInfo(0.1))));
+		self::register("dripstone_block", fn(BID $id) => new Opaque($id, "Dripstone Block", new Info(BreakInfo::pickaxe(1.5, ToolTier::WOOD, 5.0))));
+		self::register("lodestone", fn(BID $id) => new Opaque($id, "Lodestone", new Info(BreakInfo::pickaxe(3.5, ToolTier::STONE))));
+		self::register("kelp", fn(BID $id) => new DeadBush($id, "Kelp", new Info(BreakInfo::instant())));
+		self::register("seagrass", fn(BID $id) => new DeadBush($id, "Seagrass", new Info(BreakInfo::instant())));
+		self::register("scaffolding", fn(BID $id) => new Transparent($id, "Scaffolding", new Info(BreakInfo::instant())));
+		self::register("composter", fn(BID $id) => new Opaque($id, "Composter", new Info(BreakInfo::axe(0.6))));
+		self::register("grindstone", fn(BID $id) => new Opaque($id, "Grindstone", new Info(BreakInfo::pickaxe(2.0, ToolTier::WOOD, 30.0))));
+		self::register("pointed_dripstone", fn(BID $id) => new Transparent($id, "Pointed Dripstone", new Info(BreakInfo::pickaxe(1.5, ToolTier::WOOD, 15.0))));
+		self::register("turtle_egg", fn(BID $id) => new DeadBush($id, "Turtle Egg", new Info(new BreakInfo(0.5))));
+		self::register("moss_carpet", fn(BID $id) => new DeadBush($id, "Moss Carpet", new Info(new BreakInfo(0.1))));
+		self::register("beehive", fn(BID $id) => new Opaque($id, "Beehive", new Info(BreakInfo::axe(0.6))));
+		self::register("bee_nest", fn(BID $id) => new Opaque($id, "Bee Nest", new Info(BreakInfo::axe(0.3))));
+		self::register("decorated_pot", fn(BID $id) => new Transparent($id, "Decorated Pot", new Info(BreakInfo::instant())));
+		self::register("dispenser", fn(BID $id) => new Opaque($id, "Dispenser", new Info(BreakInfo::pickaxe(3.5, ToolTier::WOOD))));
+		self::register("piston", fn(BID $id) => new Opaque($id, "Piston", new Info(new BreakInfo(1.5))));
+
 		self::registerCraftingTables();
 		self::registerChorusBlocks();
 		self::registerOres();

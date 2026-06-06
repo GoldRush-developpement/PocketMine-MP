@@ -155,10 +155,62 @@ final class VanillaBlockMappings{
 		self::register1to1CustomMappings($reg, $commonProperties);
 
 		self::registerSplitMappings($reg, $commonProperties);
+
+		self::registerAdditionalBlockMappings($reg);
+	}
+
+	private static function registerAdditionalBlockMappings(BlockSerializerDeserializerRegistrar $reg) : void{
+		$reg->mapSimple(Blocks::MOSS_CARPET(), Ids::MOSS_CARPET);
+		$reg->mapModel(Model::create(Blocks::KELP(), Ids::KELP)->properties([
+			new DummyProperty(StateNames::KELP_AGE, 0),
+		]));
+		$reg->mapModel(Model::create(Blocks::SEAGRASS(), Ids::SEAGRASS)->properties([
+			new DummyProperty(StateNames::SEA_GRASS_TYPE, StringValues::SEA_GRASS_TYPE_DEFAULT),
+		]));
+		$reg->mapModel(Model::create(Blocks::SCAFFOLDING(), Ids::SCAFFOLDING)->properties([
+			new DummyProperty(StateNames::STABILITY, 0),
+			new DummyProperty(StateNames::STABILITY_CHECK, false),
+		]));
+		$reg->mapModel(Model::create(Blocks::COMPOSTER(), Ids::COMPOSTER)->properties([
+			new DummyProperty(StateNames::COMPOSTER_FILL_LEVEL, 0),
+		]));
+		$reg->mapModel(Model::create(Blocks::GRINDSTONE(), Ids::GRINDSTONE)->properties([
+			new DummyProperty(StateNames::ATTACHMENT, StringValues::ATTACHMENT_STANDING),
+			new DummyProperty(StateNames::DIRECTION, 0),
+		]));
+		$reg->mapModel(Model::create(Blocks::POINTED_DRIPSTONE(), Ids::POINTED_DRIPSTONE)->properties([
+			new DummyProperty(StateNames::DRIPSTONE_THICKNESS, StringValues::DRIPSTONE_THICKNESS_TIP),
+			new DummyProperty(StateNames::HANGING, false),
+		]));
+		$reg->mapModel(Model::create(Blocks::TURTLE_EGG(), Ids::TURTLE_EGG)->properties([
+			new DummyProperty(StateNames::TURTLE_EGG_COUNT, StringValues::TURTLE_EGG_COUNT_ONE_EGG),
+			new DummyProperty(StateNames::CRACKED_STATE, StringValues::CRACKED_STATE_NO_CRACKS),
+		]));
+		$reg->mapModel(Model::create(Blocks::BEEHIVE(), Ids::BEEHIVE)->properties([
+			new DummyProperty(StateNames::DIRECTION, 0),
+			new DummyProperty(StateNames::HONEY_LEVEL, 0),
+		]));
+		$reg->mapModel(Model::create(Blocks::BEE_NEST(), Ids::BEE_NEST)->properties([
+			new DummyProperty(StateNames::DIRECTION, 0),
+			new DummyProperty(StateNames::HONEY_LEVEL, 0),
+		]));
+		$reg->mapModel(Model::create(Blocks::DECORATED_POT(), Ids::DECORATED_POT)->properties([
+			new DummyProperty(StateNames::DIRECTION, 0),
+		]));
+		$reg->mapModel(Model::create(Blocks::DISPENSER(), Ids::DISPENSER)->properties([
+			new DummyProperty(StateNames::FACING_DIRECTION, 0),
+			new DummyProperty(StateNames::TRIGGERED_BIT, false),
+		]));
+		$reg->mapModel(Model::create(Blocks::PISTON(), Ids::PISTON)->properties([
+			new DummyProperty(StateNames::FACING_DIRECTION, 0),
+		]));
 	}
 
 	private static function registerSimpleIdOnlyMappings(BlockSerializerDeserializerRegistrar $reg) : void{
 		$reg->mapSimple(Blocks::AIR(), Ids::AIR);
+		$reg->mapSimple(Blocks::MOSS_BLOCK(), Ids::MOSS_BLOCK);
+		$reg->mapSimple(Blocks::DRIPSTONE_BLOCK(), Ids::DRIPSTONE_BLOCK);
+		$reg->mapSimple(Blocks::LODESTONE(), Ids::LODESTONE);
 		$reg->mapSimple(Blocks::AMETHYST(), Ids::AMETHYST_BLOCK);
 		$reg->mapSimple(Blocks::ANCIENT_DEBRIS(), Ids::ANCIENT_DEBRIS);
 		$reg->mapSimple(Blocks::ANDESITE(), Ids::ANDESITE);
