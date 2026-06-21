@@ -113,6 +113,7 @@ class PreSpawnPacketHandler extends PacketHandler{
 				false,
 				false,
 				new NetworkPermissions(disableClientSounds: true),
+				false, //isLoggingChat (nouveau en 1.26.30)
 				null,
 				new ServerTelemetryData("", "", "", ""),
 				[],
